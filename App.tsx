@@ -4,6 +4,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutPage from './pages/About';
+import NewHomeConstructionPage from './pages/NewHomeConstruction';
+import HomeRemodelingPage from './pages/HomeRemodeling';
+import RoofingPage from './pages/Roofing';
+import SidingPage from './pages/Siding';
+import WindowsPage from './pages/Windows';
 
 function App() {
   return (
@@ -12,6 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/new-home-construction" element={<NewHomeConstructionPage />} />
+        <Route path="/home-remodeling" element={<HomeRemodelingPage />} />
+        <Route path="/roofing" element={<RoofingPage />} />
+        <Route path="/siding" element={<SidingPage />} />
+        <Route path="/windows" element={<WindowsPage />} />
       </Routes>
       <Footer />
     </div>

@@ -22,6 +22,14 @@ const About: React.FC = () => {
             <p className="text-lg text-slate-600 leading-relaxed mb-4">
               We work together with homeowners and insurance companies to replace exterior materials that have been damaged by weather events. High winds, ice, hail, and other weather events can damage your home's exterior, and Colosseum Construction specialists are trained to identify these specific types of damage. If your property is damaged, it can be a complicated process to inform your insurance company of the specific damage and ensure that its replacement is fully funded. Colosseum Construction can make the home improvement process very easy.
             </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg mt-6">
+              <p className="text-lg text-slate-700 leading-relaxed font-semibold mb-2">
+                Partner Company: Indiana Best Flooring
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Colosseum Construction is proud to be a partner company with <strong>Indiana Best Flooring</strong>. Together, our two companies work side by side to help people improve their homes, offering comprehensive solutions from construction and remodeling to flooring installation. This partnership allows us to provide seamless, integrated home improvement services that cover every aspect of your renovation needs.
+              </p>
+            </div>
           </div>
 
           {/* Track Record Section */}

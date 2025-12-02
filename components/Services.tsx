@@ -1,49 +1,47 @@
 import React from 'react';
-import { Home, Bath, Utensils, Ruler, ShieldCheck, Sun } from 'lucide-react';
-import { ServiceItem } from '../types';
+import { Link } from 'react-router-dom';
+import { Home, Wrench, Wind, Square, Sun } from 'lucide-react';
 
-const services: ServiceItem[] = [
+const services = [
   {
-    id: 'kitchens',
-    title: 'Luxury Kitchens',
-    description: 'Chef-inspired designs blending functionality with breathtaking aesthetics. Custom cabinetry, islands, and high-end finishes.',
-    icon: <Utensils size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'baths',
-    title: 'Spa Bathrooms',
-    description: 'Transform your daily routine into a retreat. Walk-in rain showers, soaking tubs, and modern vanity solutions.',
-    icon: <Bath size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1552321901-700977455581?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'additions',
-    title: 'Home Additions',
-    description: 'Expand your living space seamlessly. We match your existing architecture to create spacious new rooms.',
+    id: 'new-home-construction',
+    title: 'New Home Construction',
+    description: 'Build your dream home from the ground up with custom design and superior craftsmanship.',
     icon: <Home size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800',
+    link: '/new-home-construction'
   },
   {
-    id: 'decks',
-    title: 'Decks & Patios',
-    description: 'Outdoor living at its finest. Custom decks, pergolas, and hardscaping designed for entertainment.',
+    id: 'home-remodeling',
+    title: 'Home Remodeling',
+    description: 'Transform your existing home with comprehensive remodeling services for kitchens, bathrooms, and more.',
+    icon: <Wrench size={32} />,
+    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
+    link: '/home-remodeling'
+  },
+  {
+    id: 'roofing',
+    title: 'Roofing',
+    description: 'Expert roofing services including replacement, repairs, and storm damage restoration.',
+    icon: <Wind size={32} />,
+    imageUrl: '/porfolio/roofing.jpg',
+    link: '/roofing'
+  },
+  {
+    id: 'siding',
+    title: 'Siding',
+    description: 'Protect and beautify your home with professional siding installation and replacement.',
+    icon: <Square size={32} />,
+    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
+    link: '/siding'
+  },
+  {
+    id: 'windows',
+    title: 'Windows',
+    description: 'Upgrade to energy-efficient windows that enhance comfort, appearance, and value.',
     icon: <Sun size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'remodeling',
-    title: 'Full Remodeling',
-    description: 'Complete gut renovations. We manage everything from demolition to the final coat of paint.',
-    icon: <Ruler size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800'
-  },
-  {
-    id: 'general',
-    title: 'General Contracting',
-    description: 'Project management you can trust. Licensed, insured, and committed to on-time delivery.',
-    icon: <ShieldCheck size={32} />,
-    imageUrl: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800'
+    imageUrl: '/porfolio/windows2.jpg',
+    link: '/windows'
   }
 ];
 
@@ -59,9 +57,10 @@ const Services: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div 
-              key={service.id} 
-              className="group relative overflow-hidden rounded-sm shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
+            <Link
+              key={service.id}
+              to={service.link}
+              className="group relative overflow-hidden rounded-sm shadow-lg hover:shadow-2xl transition-all duration-300 bg-white block"
             >
               {/* Image Header */}
               <div className="h-48 overflow-hidden relative">
@@ -84,14 +83,14 @@ const Services: React.FC = () => {
                 <p className="text-slate-600 leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <a href="#contact" className="text-sm font-bold text-orange-600 uppercase tracking-wider hover:underline">
+                <span className="text-sm font-bold text-orange-600 uppercase tracking-wider group-hover:underline">
                   Learn More
-                </a>
+                </span>
               </div>
               
               {/* Bottom Border Accent */}
               <div className="absolute bottom-0 left-0 w-0 h-1 bg-orange-500 group-hover:w-full transition-all duration-500"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

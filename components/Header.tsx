@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+
+const OTHER_SERVICES_MENU = [
+  { label: 'Roofing', href: '/roofing' },
+  { label: 'Siding', href: '/siding' },
+  { label: 'Windows', href: '/windows' },
+];
 
 const NAV_ITEMS = [
-  { label: 'Services', href: '/#services', isHash: true },
+  { label: 'New Home Construction', href: '/new-home-construction', isHash: false },
+  { label: 'Home Remodeling', href: '/home-remodeling', isHash: false },
   { label: 'Portfolio', href: '/#portfolio', isHash: true },
-  { label: 'AI Planner', href: '/#ai-planner', isHash: true },
   { label: 'Testimonials', href: '/#testimonials', isHash: true },
   { label: 'About Us', href: '/about', isHash: false },
   { label: 'Contact', href: '/#contact', isHash: true },
@@ -13,6 +19,7 @@ const NAV_ITEMS = [
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
   const scrollToTop = () => {
@@ -105,6 +112,7 @@ const Header: React.FC = () => {
       <nav className={`bg-orange-500 text-white ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
         <div className="container mx-auto px-4 md:px-16">
           <ul className="flex flex-col md:flex-row md:justify-center md:space-x-8 lg:space-x-12 text-sm font-extrabold py-4 md:py-0">
+            {/* Other Navigation Items */}
             {NAV_ITEMS.map((item) => (
               <li 
                 key={item.label} 
@@ -135,6 +143,41 @@ const Header: React.FC = () => {
                 )}
               </li>
             ))}
+
+            {/* Other Services Dropdown */}
+            <li className="border-b border-orange-600 md:border-none relative group">
+              <button
+                className="w-full md:w-auto flex items-center justify-between md:justify-center gap-2 py-3 md:py-4 hover:text-slate-900 transition-colors"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <span>OTHER SERVICES</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {/* Dropdown Menu */}
+              <ul 
+                className={`${isServicesOpen ? 'block' : 'hidden'} md:absolute md:top-full md:left-0 md:mt-0 bg-white text-slate-900 shadow-lg rounded-b-lg md:rounded-lg overflow-hidden min-w-[250px] z-50`}
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                {OTHER_SERVICES_MENU.map((service) => (
+                  <li key={service.href} className="border-b border-slate-100 last:border-none">
+                    <Link
+                      to={service.href}
+                      className="block px-6 py-3 hover:bg-orange-500 hover:text-white transition-colors text-sm font-semibold"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsServicesOpen(false);
+                        scrollToTop();
+                      }}
+                    >
+                      {service.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>
