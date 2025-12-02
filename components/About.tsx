@@ -22,13 +22,45 @@ const About: React.FC = () => {
             <p className="text-lg text-slate-600 leading-relaxed mb-4">
               We work together with homeowners and insurance companies to replace exterior materials that have been damaged by weather events. High winds, ice, hail, and other weather events can damage your home's exterior, and Colosseum Construction specialists are trained to identify these specific types of damage. If your property is damaged, it can be a complicated process to inform your insurance company of the specific damage and ensure that its replacement is fully funded. Colosseum Construction can make the home improvement process very easy.
             </p>
-            <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg mt-6">
-              <p className="text-lg text-slate-700 leading-relaxed font-semibold mb-2">
-                Partner Company: Indiana Best Flooring
-              </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Colosseum Construction is proud to be a partner company with <strong>Indiana Best Flooring</strong>. Together, our two companies work side by side to help people improve their homes, offering comprehensive solutions from construction and remodeling to flooring installation. This partnership allows us to provide seamless, integrated home improvement services that cover every aspect of your renovation needs.
-              </p>
+          </div>
+
+          {/* Partnership Section */}
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg p-8 mb-12 text-white">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="bg-white p-3 rounded-full text-orange-500">
+                <Home size={32} />
+              </div>
+              <h4 className="text-2xl font-serif font-bold">Partner Company: Indiana Best Flooring</h4>
+            </div>
+            <p className="text-lg mb-4 leading-relaxed">
+              Colosseum Construction is proud to be a <strong>partner company</strong> with <a href="https://indianabestflooring.com" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-slate-200">Indiana Best Flooring</a>. Together, our two companies work hand in hand to provide comprehensive home improvement solutions.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h5 className="text-xl font-bold mb-3">Indiana Best Flooring</h5>
+                <p className="text-lg leading-relaxed">
+                  Handles all of your <strong>flooring needs</strong>, including hardwood, laminate, tile, carpet, and cabinetry installation. As Indiana's premier flooring experts, they specialize in high-quality flooring solutions for your home.
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h5 className="text-xl font-bold mb-3">Colosseum Construction</h5>
+                <p className="text-lg leading-relaxed">
+                  Handles <strong>construction and remodeling needs</strong>, including kitchen remodeling, bathroom renovations, new home construction, roofing, siding, windows, and more. We bring your vision to life with expert craftsmanship.
+                </p>
+              </div>
+            </div>
+            <p className="text-lg leading-relaxed font-semibold">
+              Homeowners can work with both companies seamlessly - they go hand in hand! Whether you need flooring, kitchen remodeling, or complete home renovations, our partnership ensures you get the best service for every aspect of your project. This collaboration creates a great opportunity for cross-selling, allowing us to provide comprehensive solutions that cover all your home improvement needs under one trusted partnership.
+            </p>
+            <div className="mt-6">
+              <a 
+                href="https://indianabestflooring.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-white text-orange-500 font-bold rounded-lg hover:bg-slate-100 transition-colors"
+              >
+                Visit Indiana Best Flooring →
+              </a>
             </div>
           </div>
 
