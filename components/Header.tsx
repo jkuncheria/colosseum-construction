@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    };
 
   const handleNavClick = (href: string, isHash: boolean) => {
     setIsMenuOpen(false);
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         <div className="text-center text-slate-900 font-semibold">
           <span className="mr-2">🏠 WE OFFER FLEXIBLE FINANCING OPTIONS!</span>
           <Link to="/#contact" onClick={() => handleNavClick('/#contact', true)} className="underline hover:text-orange-500">Learn More</Link>
-        </div>
+          </div>
       </div>
 
       {/* Main Header Content */}
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
                 <Mail className="w-5 h-5" />
               </Link>
               <a 
-                href="tel:+15551234567"
+                href="tel:+13173009813"
                 className="p-2 bg-orange-500 text-white rounded-lg"
               >
                 <Phone className="w-5 h-5" />
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
               Contact
             </Link>
             <a 
-              href="tel:+15551234567"
+              href="tel:+13173009813"
               className="flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-all transform hover:scale-105 shadow-md"
             >
               <Phone className="w-4 h-4 mr-2" />

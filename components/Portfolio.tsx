@@ -20,7 +20,7 @@ const Portfolio: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-orange-500 font-bold tracking-widest uppercase mb-3 text-sm">Our Work</h2>
-          <h3 className="text-4xl font-serif font-bold text-slate-900">Featured Projects</h3>
+            <h3 className="text-4xl font-serif font-bold text-slate-900">Featured Projects</h3>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-6"></div>
         </div>
 
