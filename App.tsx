@@ -9,6 +9,7 @@ import HomeRemodelingPage from './pages/HomeRemodeling';
 import RoofingPage from './pages/Roofing';
 import SidingPage from './pages/Siding';
 import WindowsPage from './pages/Windows';
+import FinancingPage from './pages/Financing';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/roofing" element={<RoofingPage />} />
         <Route path="/siding" element={<SidingPage />} />
         <Route path="/windows" element={<WindowsPage />} />
+        <Route path="/financing" element={<FinancingPage />} />
       </Routes>
       <Footer />
     </div>

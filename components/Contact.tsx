@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Upload } from 'lucide-react';
+import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const [files, setFiles] = useState<FileList | null>(null);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -11,39 +10,16 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFiles(e.target.files);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setStatusMessage(null);
 
-    let uploadedImageUrls: string[] = [];
-
     try {
-      if (files && files.length > 0) {
-        const uploadForm = new FormData();
-        Array.from(files).forEach(file => uploadForm.append('files', file));
-
-        const uploadRes = await fetch('https://www.renolens.com/api/contact-form/upload', {
-          method: 'POST',
-          body: uploadForm,
-        });
-
-        if (!uploadRes.ok) {
-          throw new Error('File upload failed');
-        }
-
-        const uploadData = await uploadRes.json();
-        uploadedImageUrls = uploadData.urls || uploadData.images || [];
-      }
-
       const payload = {
         ...formData,
         clientId: 'RL-JDJEDGHN',
-        images: uploadedImageUrls,
+        images: [],
       };
 
       const res = await fetch('https://www.renolens.com/api/contact-form', {
@@ -58,7 +34,6 @@ const Contact: React.FC = () => {
 
       setStatusMessage({ type: 'success', text: 'Thank you! Your request has been sent. We will be in touch shortly.' });
       setFormData({ name: '', email: '', phone: '', message: '' });
-      setFiles(null);
     } catch (error) {
       console.error(error);
       setStatusMessage({ type: 'error', text: 'Sorry, something went wrong. Please try again or call us at (317) 300-9813.' });
@@ -154,26 +129,6 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-slate-50 border border-slate-200 p-3 rounded-md focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none" 
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-2">Attachments (images, optional)</label>
-                <div className="flex items-center gap-3">
-                  <label className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-md cursor-pointer hover:bg-slate-200 transition-colors">
-                    <Upload size={16} />
-                    <span>Upload Images</span>
-                    <input 
-                      type="file" 
-                      accept="image/*"
-                      multiple
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                  </label>
-                  {files && files.length > 0 && (
-                    <span className="text-sm text-slate-600">{files.length} file(s) selected</span>
-                  )}
-                </div>
               </div>
 
               <div>

@@ -11,6 +11,7 @@ const OTHER_SERVICES_MENU = [
 const NAV_ITEMS = [
   { label: 'New Home Construction', href: '/new-home-construction', isHash: false },
   { label: 'Home Remodeling', href: '/home-remodeling', isHash: false },
+  { label: 'Financing', href: '/financing', isHash: false },
   { label: 'Portfolio', href: '/#portfolio', isHash: true },
   { label: 'Testimonials', href: '/#testimonials', isHash: true },
   { label: 'About Us', href: '/about', isHash: false },
