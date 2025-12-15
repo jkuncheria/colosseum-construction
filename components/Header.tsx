@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 
 const OTHER_SERVICES_MENU = [
@@ -27,23 +27,37 @@ const Header: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToHash = (hash: string) => {
+    // Try multiple times with increasing delays to ensure element is rendered
+    const attemptScroll = (attempts = 0) => {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts < 10) {
+        // Try again after a short delay (up to 10 attempts)
+        setTimeout(() => attemptScroll(attempts + 1), 50);
+      }
     };
+    attemptScroll();
+  };
 
   const handleNavClick = (href: string, isHash: boolean) => {
     setIsMenuOpen(false);
     if (isHash && location.pathname !== '/') {
-      // If we're not on home page, navigate to home first, then scroll
-      window.location.href = href;
+      // If we're not on home page, navigate to home with hash
+      // React Router will handle the navigation, and Home component will scroll
+      navigate(href);
     } else if (isHash) {
-      // If we're on home page, just scroll
+      // If we're on home page, update hash and scroll
       const hash = href.split('#')[1];
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      window.location.hash = hash;
+      scrollToHash(hash);
     }
   };
 
@@ -53,7 +67,7 @@ const Header: React.FC = () => {
       <div className="bg-gray-100 text-xs py-2 px-4 flex justify-center items-center border-b border-gray-200">
         <div className="text-center text-slate-900 font-semibold">
           <span className="mr-2">🏠 WE OFFER FLEXIBLE FINANCING OPTIONS!</span>
-          <Link to="/#contact" onClick={() => handleNavClick('/#contact', true)} className="underline hover:text-orange-500">Learn More</Link>
+          <Link to="/financing" onClick={() => { setIsMenuOpen(false); scrollToTop(); }} className="underline hover:text-orange-500">Learn More</Link>
           </div>
       </div>
 
