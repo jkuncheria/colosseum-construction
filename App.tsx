@@ -10,6 +10,7 @@ import RoofingPage from './pages/Roofing';
 import SidingPage from './pages/Siding';
 import WindowsPage from './pages/Windows';
 import FinancingPage from './pages/Financing';
+import CommercialWorkPage from './pages/CommercialWork';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/siding" element={<SidingPage />} />
         <Route path="/windows" element={<WindowsPage />} />
         <Route path="/financing" element={<FinancingPage />} />
+        <Route path="/commercial-work" element={<CommercialWorkPage />} />
       </Routes>
       <Footer />
     </div>

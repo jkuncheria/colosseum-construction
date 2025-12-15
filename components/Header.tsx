@@ -8,19 +8,24 @@ const OTHER_SERVICES_MENU = [
   { label: 'Windows', href: '/windows' },
 ];
 
+const ABOUT_MENU = [
+  { label: 'About Us', href: '/about', isHash: false },
+  { label: 'Contact', href: '/#contact', isHash: true },
+  { label: 'Financing', href: '/financing', isHash: false },
+  { label: 'Testimonials', href: '/#testimonials', isHash: true },
+];
+
 const NAV_ITEMS = [
   { label: 'New Home Construction', href: '/new-home-construction', isHash: false },
   { label: 'Home Remodeling', href: '/home-remodeling', isHash: false },
-  { label: 'Financing', href: '/financing', isHash: false },
+  { label: 'Commercial Work', href: '/commercial-work', isHash: false },
   { label: 'Portfolio', href: '/#portfolio', isHash: true },
-  { label: 'Testimonials', href: '/#testimonials', isHash: true },
-  { label: 'About Us', href: '/about', isHash: false },
-  { label: 'Contact', href: '/#contact', isHash: true },
 ];
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const location = useLocation();
 
   const scrollToTop = () => {
@@ -144,6 +149,56 @@ const Header: React.FC = () => {
                 )}
               </li>
             ))}
+
+            {/* About Dropdown */}
+            <li className="border-b border-orange-600 md:border-none relative group">
+              <button
+                className="w-full md:w-auto flex items-center justify-between md:justify-center gap-2 py-3 md:py-4 hover:text-slate-900 transition-colors"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                onMouseEnter={() => setIsAboutOpen(true)}
+                onMouseLeave={() => setIsAboutOpen(false)}
+              >
+                <span>ABOUT</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {/* Dropdown Menu */}
+              <ul 
+                className={`${isAboutOpen ? 'block' : 'hidden'} md:absolute md:top-full md:left-0 md:mt-0 bg-white text-slate-900 shadow-lg rounded-b-lg md:rounded-lg overflow-hidden min-w-[250px] z-50`}
+                onMouseEnter={() => setIsAboutOpen(true)}
+                onMouseLeave={() => setIsAboutOpen(false)}
+              >
+                {ABOUT_MENU.map((item) => (
+                  <li key={item.href} className="border-b border-slate-100 last:border-none">
+                    {item.isHash ? (
+                      <a
+                        href={item.href}
+                        className="block px-6 py-3 hover:bg-orange-500 hover:text-white transition-colors text-sm font-semibold"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsMenuOpen(false);
+                          setIsAboutOpen(false);
+                          handleNavClick(item.href, true);
+                        }}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className="block px-6 py-3 hover:bg-orange-500 hover:text-white transition-colors text-sm font-semibold"
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setIsAboutOpen(false);
+                          scrollToTop();
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </li>
 
             {/* Other Services Dropdown */}
             <li className="border-b border-orange-600 md:border-none relative group">
