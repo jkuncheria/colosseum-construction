@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { CreditCard, CheckCircle, Clock, Shield, DollarSign, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Financing: React.FC = () => {
@@ -79,9 +79,9 @@ const Financing: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <span className="text-orange-600 font-bold tracking-wider text-sm uppercase">Financing & Warranty</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mt-4 mb-5">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mt-4 mb-5">
             Make Your Dream Projects Affordable
-          </h2>
+          </h1>
           <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Get the upgrades you want today with flexible financing options. Up to 18 months of interest-free financing 

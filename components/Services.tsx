@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Home, Wrench, Wind, Square, Sun } from 'lucide-react';
 
 const services = [

@@ -7,8 +7,8 @@ const About: React.FC = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-orange-500 font-bold tracking-widest uppercase mb-3 text-sm">About Us</h2>
-          <h3 className="text-4xl font-serif font-bold text-slate-900 mb-4">Greenwood Home Improvement Company</h3>
+          <span className="text-orange-500 font-bold tracking-widest uppercase mb-3 text-sm">About Us</span>
+          <h1 className="text-4xl font-serif font-bold text-slate-900 mb-4">Greenwood Home Improvement Company</h1>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-6"></div>
         </div>
 
