@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -18,8 +18,6 @@ const Footer: React.FC = () => {
 
           <div className="flex gap-6">
              <a href="https://www.facebook.com/colosseumconstruction/?fref=ts" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors"><Facebook size={20} /></a>
-             <a href="#" className="hover:text-orange-500 transition-colors"><Instagram size={20} /></a>
-             <a href="#" className="hover:text-orange-500 transition-colors"><Linkedin size={20} /></a>
              <a href="https://x.com/ColosseumConst1" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors"><Twitter size={20} /></a>
           </div>
         </div>
