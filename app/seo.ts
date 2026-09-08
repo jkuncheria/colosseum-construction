@@ -29,7 +29,7 @@ const S = SITE;
 
 export const PAGE_SEO = {
   Home: {
-    title: `${S.name} | Home Builder & Remodeler in ${S.city}, ${S.state}`,
+    title: `${S.name} | Home & Commercial Builder in ${S.city}, ${S.state}`,
     description: `${S.name} builds and remodels homes across ${S.region}. New home construction, remodeling, roofing, siding, windows and commercial work. Licensed, bonded and insured. Call ${S.phone}.`,
     path: '/',
   },
