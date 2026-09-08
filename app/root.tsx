@@ -3,12 +3,14 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse }
 import type { Route } from './+types/root';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { PAGE_SEO, SITE } from './seo';
+import { SITE } from './seo';
 import { LOCAL_BUSINESS_SCHEMA } from './schema';
 import { TAILWIND_CONFIG, GLOBAL_STYLES } from './headAssets';
 
 export const links: Route.LinksFunction = () => [
-  { rel: 'icon', type: 'image/svg+xml', href: '/vite.svg' },
+  // Was /vite.svg, the default Vite logo, on the live site. Now the brand mark.
+  { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicon.png' },
+  { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   {
@@ -16,22 +18,6 @@ export const links: Route.LinksFunction = () => [
     href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap',
   },
 ];
-
-export function meta() {
-  const home = PAGE_SEO.Home;
-  return [
-    { title: home.title },
-    { name: 'description', content: home.description },
-    { name: 'robots', content: 'index, follow' },
-    { name: 'author', content: SITE.name },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:site_name', content: SITE.name },
-    { property: 'og:locale', content: 'en_US' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'geo.region', content: 'US-IN' },
-    { name: 'geo.placename', content: SITE.city },
-  ];
-}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

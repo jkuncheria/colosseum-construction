@@ -95,9 +95,26 @@ export type PageKey = keyof typeof PAGE_SEO;
 export function pageMeta(key: PageKey) {
   const p = PAGE_SEO[key];
   const url = `${S.url}${p.path === '/' ? '/' : p.path}`;
+  // NOTE: a child route's meta() REPLACES the root's entirely in React Router
+  // framework mode. Site-wide tags therefore have to live here, not in
+  // app/root.tsx, or they vanish from every page.
   return [
     { title: p.title },
     { name: 'description', content: p.description },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'author', content: S.name },
+    { name: 'geo.region', content: `US-${S.state}` },
+    { name: 'geo.placename', content: S.city },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: S.name },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:image', content: `${S.url}/og-image.jpg` },
+    { property: 'og:image:type', content: 'image/jpeg' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: `${S.name} in ${S.city}, ${S.state}` },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: `${S.url}/og-image.jpg` },
     { tagName: 'link', rel: 'canonical', href: url },
     { property: 'og:title', content: p.title },
     { property: 'og:description', content: p.description },
