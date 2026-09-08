@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', smsOptIn: false });
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
@@ -33,7 +34,7 @@ const Contact: React.FC = () => {
       }
 
       setStatusMessage({ type: 'success', text: 'Thank you! Your request has been sent. We will be in touch shortly.' });
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', smsOptIn: false });
     } catch (error) {
       console.error(error);
       setStatusMessage({ type: 'error', text: 'Sorry, something went wrong. Please try again or call us at (317) 300-9813.' });
@@ -74,7 +75,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold mb-1">Email</h4>
-                  <p className="text-slate-400">info@colosseumconstruction.com</p>
+                  <p className="text-slate-400">lorne@colosseumconstruction.com</p>
                   <p className="text-slate-500 text-sm">Online support 24/7</p>
                 </div>
               </div>
@@ -143,7 +144,26 @@ const Contact: React.FC = () => {
                 ></textarea>
               </div>
 
-              <button 
+              {/* SMS Opt-in Checkbox */}
+              <div>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="smsOptIn"
+                    checked={formData.smsOptIn}
+                    onChange={(e) => setFormData(prev => ({ ...prev, smsOptIn: e.target.checked }))}
+                    className="mt-1 w-5 h-5 rounded border border-slate-300 text-orange-500 focus:ring-orange-500 focus:ring-offset-0 cursor-pointer"
+                  />
+                  <span className="text-sm text-slate-600 leading-relaxed">
+                    I agree to receive SMS/text messages from Colosseum Construction for appointment confirmations, reminders, and service updates. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe. View our{' '}
+                    <Link to="/privacy-policy" className="text-orange-600 hover:underline font-medium">Privacy Policy</Link>
+                    {' '}and{' '}
+                    <Link to="/terms-of-service" className="text-orange-600 hover:underline font-medium">Terms of Service</Link>.
+                  </span>
+                </label>
+              </div>
+
+              <button
                 type="submit" 
                 disabled={loading}
                 className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-70 disabled:cursor-not-allowed text-slate-900 font-bold py-4 rounded-md transition-colors flex items-center justify-center gap-2"

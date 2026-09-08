@@ -23,3 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# build output
+build
+.react-router
+.DS_Store
+
+# Source videos: 263MB across 4 files (38-85MB each). Too large for git;
+# they live in public/ locally and are served from the Vercel deployment.
+public/*.mp4

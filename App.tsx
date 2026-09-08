@@ -11,6 +11,9 @@ import SidingPage from './pages/Siding';
 import WindowsPage from './pages/Windows';
 import FinancingPage from './pages/Financing';
 import CommercialWorkPage from './pages/CommercialWork';
+import FeaturedVideosPage from './pages/FeaturedVideos';
+import PrivacyPolicyPage from './pages/PrivacyPolicy';
+import TermsOfServicePage from './pages/TermsOfService';
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
         <Route path="/windows" element={<WindowsPage />} />
         <Route path="/financing" element={<FinancingPage />} />
         <Route path="/commercial-work" element={<CommercialWorkPage />} />
+        <Route path="/featured-videos" element={<FeaturedVideosPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
       </Routes>
       <Footer />
     </div>

@@ -10,6 +10,7 @@ const OTHER_SERVICES_MENU = [
 
 const ABOUT_MENU = [
   { label: 'About Us', href: '/about', isHash: false },
+  { label: 'Featured Videos', href: '/featured-videos', isHash: false },
   { label: 'Contact', href: '/#contact', isHash: true },
   { label: 'Financing', href: '/financing', isHash: false },
   { label: 'Testimonials', href: '/#testimonials', isHash: true },
