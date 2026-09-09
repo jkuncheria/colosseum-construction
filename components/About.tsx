@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Shield, CheckCircle, Award, Home, Wrench } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -128,12 +129,12 @@ const About: React.FC = () => {
             <p className="text-lg mb-6 leading-relaxed">
               Browse our gallery of completed remodels to get ideas and see the quality of our work. We stand ready to make your dream kitchen, bathroom, or commercial remodel a reality. Contact our Greenwood Home Improvement company for any questions today.
             </p>
-            <a 
-              href="#contact"
+            <Link 
+              to="/contact"
               className="inline-block px-8 py-4 bg-white text-orange-500 font-bold rounded-lg hover:bg-slate-100 transition-colors"
             >
               Get In Touch
-            </a>
+            </Link>
           </div>
         </div>
       </div>

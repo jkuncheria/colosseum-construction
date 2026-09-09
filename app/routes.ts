@@ -9,6 +9,7 @@ export default [
   route('roofing', 'routes/roofing.tsx'),
   route('siding', 'routes/siding.tsx'),
   route('windows', 'routes/windows.tsx'),
+  route('contact', 'routes/contact.tsx'),
   route('financing', 'routes/financing.tsx'),
   route('commercial-work', 'routes/commercial-work.tsx'),
   route('featured-videos', 'routes/featured-videos.tsx'),

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 import { Sparkles, Loader2, ArrowRight } from 'lucide-react';
 import { generateRenovationIdeas } from '../services/gemini';
 import { RoomType, DesignStyle } from '../types';
@@ -154,12 +155,12 @@ const AIPlanner: React.FC = () => {
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <p className="text-center text-slate-500 text-sm mb-4">Like what you see? Let's make it real.</p>
-                  <a 
-                    href="#contact"
+                  <Link 
+                    to="/contact"
                     className="block w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg text-center transition-all"
                   >
                     Discuss These Plans With Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

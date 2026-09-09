@@ -11,7 +11,7 @@ const OTHER_SERVICES_MENU = [
 const ABOUT_MENU = [
   { label: 'About Us', href: '/about', isHash: false },
   { label: 'Featured Videos', href: '/featured-videos', isHash: false },
-  { label: 'Contact', href: '/#contact', isHash: true },
+  { label: 'Contact', href: '/contact' },
   { label: 'Financing', href: '/financing', isHash: false },
   { label: 'Testimonials', href: '/#testimonials', isHash: true },
 ];
@@ -111,8 +111,8 @@ const Header: React.FC = () => {
           {/* Call & Contact Buttons (Desktop) */}
           <div className="hidden md:flex items-center space-x-3">
             <Link 
-              to="/#contact"
-              onClick={() => handleNavClick('/#contact', true)}
+              to="/contact"
+              onClick={() => handleNavClick('/contact')}
               className="flex items-center border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold text-sm px-4 py-2 rounded-lg transition-all"
             >
               <Mail className="w-4 h-4 mr-2" />

@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  /** Render the section heading as the page h1 and drop the anchor id.
+   *  The homepage embeds this below its own h1, so it stays an h2 there. */
+  standalone?: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ standalone = false }) => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', smsOptIn: false });
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
@@ -50,8 +56,12 @@ const Contact: React.FC = () => {
           
           {/* Info */}
           <div>
-            <h2 className="text-orange-500 font-bold tracking-widest uppercase mb-3 text-sm">Contact Us</h2>
-            <h3 className="text-4xl font-serif font-bold text-white mb-8">Ready to Build Your Legacy?</h3>
+            <span className="block text-orange-500 font-bold tracking-widest uppercase mb-3 text-sm">Contact Us</span>
+            {standalone ? (
+              <h1 className="text-4xl font-serif font-bold text-white mb-8">Ready to Build Your Legacy?</h1>
+            ) : (
+              <h2 className="text-4xl font-serif font-bold text-white mb-8">Ready to Build Your Legacy?</h2>
+            )}
             <p className="text-slate-400 mb-12 text-lg leading-relaxed">
               Whether you have a complete blueprint or just a napkin sketch, we are ready to listen. 
               Contact us today for a free consultation and estimate.

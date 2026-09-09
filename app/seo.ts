@@ -68,6 +68,11 @@ export const PAGE_SEO = {
     description: `Commercial construction and build-outs across ${S.region}. ${S.name} handles commercial roofing, exteriors and interior work for property owners and businesses.`,
     path: '/commercial-work',
   },
+  Contact: {
+    title: `Contact ${S.name} | Free Estimate in ${S.city}, ${S.state}`,
+    description: `Get a free estimate from ${S.name}. Call ${S.phone}, email ${S.email}, or visit ${S.street}, ${S.city}, ${S.stateFull} ${S.zip}. Serving ${S.region}.`,
+    path: '/contact',
+  },
   Financing: {
     title: `Financing Options | ${S.name} ${S.city} IN`,
     description: `Financing options for construction and remodeling projects with ${S.name}. Talk through payment options for your project by calling ${S.phone}.`,

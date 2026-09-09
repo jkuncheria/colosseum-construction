@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -33,13 +34,13 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a 
-              href="#contact" 
+            <Link 
+              to="/contact" 
               className="px-8 py-4 bg-orange-500 hover:bg-orange-400 text-slate-900 font-bold rounded-sm transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2"
             >
               Get a Free Quote
               <ArrowRight size={18} />
-            </a>
+            </Link>
             <a 
               href="#portfolio" 
               className="px-8 py-4 border border-white/30 hover:border-white text-white font-semibold rounded-sm backdrop-blur-sm transition-all hover:bg-white/10"
