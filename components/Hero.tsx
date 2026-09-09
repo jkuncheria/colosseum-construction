@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] flex items-start justify-center overflow-hidden pt-32">
+    <section id="hero" className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 pb-28 md:pt-32 md:pb-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -23,11 +23,11 @@ const Hero: React.FC = () => {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-5 md:mb-6 leading-tight">
             Indiana's Premier <span className="text-orange-500 italic">Home Improvement</span> Company
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl font-light leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl font-light leading-relaxed">
             From luxury kitchen remodels to custom additions, Colosseum Construction combines 
             classic craftsmanship with modern design to transform your house into a dream home.
           </p>
